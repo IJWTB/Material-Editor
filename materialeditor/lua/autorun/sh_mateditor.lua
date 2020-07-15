@@ -34,6 +34,8 @@ function advMats:Set(ent, texture, data)
 		if (texture == nil or texture == "") then
 			if (IsValid(ent)) then
 				ent:SetMaterial("")
+				ent.MaterialData = nil -- clear the table so it doesn't get reapplied
+				duplicator.ClearEntityModifier(ent, "MaterialData") -- clear modifier
 			end
 
 			return
